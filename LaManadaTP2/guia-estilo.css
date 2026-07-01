@@ -1,0 +1,337 @@
+/* ============================================================
+   La Manada Pet Shop - guia-estilo.css
+   Hoja de estilos para guia-estilo.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+:root {
+    --naranja: #f04416;
+    --naranja-oscuro: #c8340c;
+    --lima: #8fb800;
+    --crema: #fff8ed;
+    --crema-borde: #f2e3cc;
+    --oscuro: #2e1a0e;
+    --radio: 16px;
+    --sombra: 0 10px 25px rgba(46, 26, 14, 0.10);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', 'Segoe UI', sans-serif;
+    background-color: var(--crema);
+    color: var(--oscuro);
+    line-height: 1.6;
+    background-image:
+        radial-gradient(circle, rgba(240, 68, 22, 0.07) 2px, transparent 2.5px),
+        radial-gradient(circle, rgba(143, 184, 0, 0.07) 2px, transparent 2.5px);
+    background-size: 48px 48px, 48px 48px;
+    background-position: 0 0, 24px 24px;
+}
+
+h1, h2, h3 {
+    font-family: 'Baloo 2', 'Segoe UI', sans-serif;
+}
+
+/* ---------------------------------------------------------
+   Encabezado
+--------------------------------------------------------- */
+
+.encabezado {
+    background: linear-gradient(135deg, var(--naranja) 0%, var(--naranja-oscuro) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.encabezado h1 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin: 0 0 0.4rem;
+}
+
+.encabezado p {
+    margin: 0 0 1.5rem;
+    opacity: 0.9;
+}
+
+.encabezado nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.encabezado nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.encabezado nav a:hover {
+    border-color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Estructura general
+--------------------------------------------------------- */
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.bloque {
+    background-color: #fff;
+    border: 1px solid var(--crema-borde);
+    border-top: 5px solid var(--naranja);
+    border-radius: var(--radio);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    box-shadow: var(--sombra);
+}
+
+.bloque:nth-of-type(even) {
+    border-top-color: var(--lima);
+}
+
+.bloque h2 {
+    color: var(--naranja);
+    margin-top: 0;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   Paleta de colores
+--------------------------------------------------------- */
+
+.paleta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.color {
+    border-radius: 12px;
+    padding: 2.5rem 1rem 1rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(46, 26, 14, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.color:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.color:nth-child(odd) {
+    transform: rotate(-1.5deg);
+}
+
+.color:hover {
+    transform: scale(1.05) rotate(0deg);
+}
+
+.color span {
+    display: block;
+    font-family: 'Baloo 2', monospace;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.color p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+.color-naranja {
+    background-color: #f04416;
+}
+
+.color-lima {
+    background-color: #8fb800;
+}
+
+.color-crema {
+    background-color: #fff8ed;
+    color: var(--oscuro);
+}
+
+.color-oscuro {
+    background-color: #2e1a0e;
+}
+
+/* ---------------------------------------------------------
+   Acordeón de textos
+--------------------------------------------------------- */
+
+details {
+    background-color: var(--crema);
+    border: 1px solid var(--crema-borde);
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 0.9rem;
+}
+
+details + details {
+    margin-top: 0.9rem;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--naranja-oscuro);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    font-size: 1.3rem;
+    color: var(--naranja);
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+details p {
+    margin: 0.75rem 0 0.25rem;
+}
+
+/* ---------------------------------------------------------
+   Campo de formulario con foco
+--------------------------------------------------------- */
+
+.bloque form {
+    margin-top: 1rem;
+}
+
+.bloque label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.bloque input[type="text"] {
+    width: 100%;
+    max-width: 360px;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--crema-borde);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bloque input[type="text"]:focus {
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 4px rgba(240, 68, 22, 0.18);
+}
+
+/* ---------------------------------------------------------
+   Botones 3D
+--------------------------------------------------------- */
+
+.boton-3d {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--naranja);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.6rem;
+    margin-right: 0.75rem;
+    box-shadow: 0 6px 0 var(--naranja-oscuro);
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.boton-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--naranja-oscuro);
+}
+
+.boton-3d.secundario {
+    background-color: var(--lima);
+    box-shadow: 0 6px 0 #6c8c00;
+}
+
+.boton-3d.secundario:active {
+    box-shadow: 0 2px 0 #6c8c00;
+}
+
+/* ---------------------------------------------------------
+   Enlaces animados
+--------------------------------------------------------- */
+
+.enlace-animado {
+    position: relative;
+    color: var(--naranja-oscuro);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.enlace-animado::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--naranja);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+}
+
+.enlace-animado:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ---------------------------------------------------------
+   Pie de página
+--------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--oscuro);
+    color: #fff;
+    margin-top: 3rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .encabezado h1 {
+        font-size: 1.9rem;
+    }
+
+    .bloque {
+        padding: 1.5rem 1.25rem;
+    }
+}
